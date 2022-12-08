@@ -1,0 +1,12 @@
+let number01 = prompt('Введіть перше число:');
+let number02 = prompt('Введіть друге число:');
+number01 = parseFloat(number01);
+number02 = parseFloat(number02);
+let numberSum = number01 + number02;
+let numberSub = number01 - number02;
+let numberMulti = number01 * number02;
+let numberDiv = number01 / number02;
+console.log(numberSum);
+console.log(numberSub);
+console.log(numberMulti);
+console.log(numberDiv);
