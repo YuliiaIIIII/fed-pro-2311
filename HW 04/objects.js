@@ -12,12 +12,22 @@
 
 
 
+
 // 3) Створіть массив в якому видаляється кожний другий елемент ["Keep", "Remove", "Keep", "Remove", "Keep", ...] в результаті повинен бути ось такий новий массив ["Keep", "Keep", "Keep", ...], Врахувати що массив може бути пустий, повернути помилку в разі пустого масиву
-let elements = ["Keep", "Remove", "Keep", "Remove", "Keep", "Remove", "Keep", "Remove", "Keep", "Remove", "Keep"];
-// let elements = [];
+let elements = [];
+let elementsLong = parseInt(prompt("How much elements will be addet to the arrow?"));
+for(j=0; j<elementsLong; j++){
+  if(j%2 == 0){
+    elements.push("Keep");
+  }else{
+    elements.push("Remove");
+  }
+}
+// console.log(elements);
+
 function removeElements(){
   if(!elements.length){
-    alert("Empty array");
+    alert("Array is empty");
   }
   for(i=1; i<=elements.length; i++){
     elements.splice(i, 1);
@@ -27,11 +37,11 @@ function removeElements(){
 removeElements();
 
 
-// 4) Створити функцію яка обробляє массив обєктів і вираховує площу фігури в обєкті,
 
+// // 4) Створити функцію яка обробляє массив обєктів і вираховує площу фігури в обєкті,
 // let figurs = [
 //     {
-//         figure:"Squar",
+//         figure:"Square",
 //         sizeA: 4,
 //         sizeB: 4
 //     },
@@ -41,6 +51,35 @@ removeElements();
 //         sizeB: 8
 //     }
 // ]
+// figurs.square = function(){ 
+//     for(i=0; i<figurs.length; i++){
+//         let result = figurs[i].sizeA * figurs[i].sizeB;
+//         console.log(`Фігура ${figurs[i].figure} з площею ${result}`);
+//     }
+// }
+// figurs.square();
+
+let figurs = [
+    {
+        figure:"Square",
+        sizeA: 4,
+        sizeB: 4
+    },
+    {
+        figure:"Rectangle",
+        sizeA: 4,
+        sizeB: 8
+    }
+]
+
+function square(figurs){ 
+    for(i=0; i<figurs.length; i++){
+        let result = figurs[i].sizeA * figurs[i].sizeB;
+        console.log((`Фігура ${figurs[i].figure} з площею ${result}`));  
+    }
+}
+square(figurs);
+
 
 
 // 5) Створити новий массив який використовує массив [2,3,5,4,8,7,9,10] і перемножує парні значення на 4
