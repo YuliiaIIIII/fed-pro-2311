@@ -7,7 +7,7 @@ let userWallet = {
 
 bank = [
     {
-        name: "usa",
+        name: "usd",
         buy: 40.5,
         sell: 40.0
     },
@@ -18,8 +18,8 @@ bank = [
     },
     {
         name: "uah",
-        buy: 0.027,
-        sell: 0.025
+        buy: 1.0,
+        sell: 1.0
     }
 ];
 
@@ -27,25 +27,36 @@ userWallet.amountUsd = parseFloat(prompt("Вкажіть скільки USD по
 userWallet.amountEuro = parseFloat(prompt("Вкажіть скільки EURO покласти до гаманця:"));
 userWallet.amountUah = parseFloat(prompt("Вкажіть скільки UAH покласти до гаманця:"));
 
-function converter(){
+function converter(arrayValue){
     if(userWallet.amountUah<=0){
         alert("Your balance is too low!");
+        return;
     }
-    return `За ${userWallet.amountUah} UAH ви можете купити ${(userWallet.amountUah / bank[0].buy).toFixed(2)} USD.\nЗа ${userWallet.amountUah} UAH ви можете купити ${(userWallet.amountUah / bank[1].buy).toFixed(2)} EU.`; 
+
+  arrayValue.forEach((item) => {console.log(`За ${userWallet.amountUah} UAH ви можете купити ${(userWallet.amountUah / item.buy).toFixed(2)}.`)});
 }
-converter(userWallet);
-console.log(converter());
+converter(bank);
 
-function sellAllAmount(){
-    let getUAHfromUsd = parseFloat((userWallet.amountUsd * bank[0].sell).toFixed(2));
-    let getUAHfromEuro = parseFloat((userWallet.amountEuro * bank[1].sell).toFixed(2));
-    let sellAll = parseFloat((getUAHfromUsd + getUAHfromEuro).toFixed(2));
-    return `Продаж збережень в долларах принесе Вам ${getUAHfromUsd} UAH.\nПродаж збережень в євро принесе Вам ${getUAHfromEuro} UAH.\nПродаж всіх збережень принесе Вам ${sellAll} UAH.` 
+function sellAllAmount(arrayValue){
 
+    const allCurrency = [];
+    for (let value in userWallet){
+        allCurrency.push(userWallet[value])
+    }
+    
+    let totalWallet = 0;
+    const sellAmount = [];
+    for(let value of arrayValue){
+        sellAmount.push(value.sell);
+    }
+
+    for (let i = 0; i < bank.length-1; i++){
+        let allExchange = allCurrency[i]*sellAmount[i];
+        totalWallet += allExchange;
+    }
+    console.log(`Продавши свої збереження ви можете отримати ${totalWallet} UAH.`);   
 }
-sellAllAmount();
-console.log(sellAllAmount());
-
+sellAllAmount(bank);
 
 
 // 2)Створити функцію move яка повертає текст на скільки кроків і куди (отримане значення) змістився користувач . Створити функцію moveUser яка отримує напрямок переміщення, кількість кроків і функцію move як колбек. moveUser ('north', move, 10) повина повернути ( Юзер перемістився на північ на 10 кроків)
