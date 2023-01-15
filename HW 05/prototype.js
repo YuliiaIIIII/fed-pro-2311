@@ -1,11 +1,12 @@
 // 1) Створити функцію конструктор яка створює обєкт юзер (з даними імя, прізвище, вік, також в юзера повинен бути унікальний іd номер від 1 до 10) в функції конструкторі повиний бути метод виводу інформації про юзера. 
 // Метод повинен бути винесений в прототип.
+
 const userData = new Object();
 function UserInfo(userName, userSurname, userAge, userID){
     this.userName = userName;
     this.userSurname = userSurname;
     this.userAge = userAge;
-    this.userID = (Math.random()*10).toFixed(0);
+    this.userID = Math.round(Math.random()*10);
     }
 
     UserInfo.prototype.userDataInfo = function(){
@@ -13,24 +14,29 @@ function UserInfo(userName, userSurname, userAge, userID){
     }
 
 const newUser = new UserInfo ("Tim", "Land", "19", "");
-console.log(UserInfo.userDataInfo());
+console.log(newUser.userDataInfo());
 const newUser2 = new UserInfo ("Tom", "Lind", "43", "");
-console.log(UserInfo.userDataInfo());
+console.log(newUser2.userDataInfo());
 
 
 
-// 2)Створити методи на прототайп для оновлення ключів обєкту юзер наприклад змінити імя , вік користувача.ІD не міняється
-function User(firstName, age, id){
+// 2)Створити методи на прототайп для оновлення ключів обєкту юзер наприклад змінити імя, вік користувача. ІD не міняється
+const newPerson = new Object();
+function PersonData(firstName, age, id){
+    this.firstName = firstName;
+    this.age = age;
+    this.id = id;
+}
+
+PersonData.prototype.changeData = function(firstName, age){
     this.firstName = firstName;
     this.age = age;
 }
-User.id = 1;
-let person = new User("Sem", 21);
+
+let person = new PersonData("Sem", 21, 1);
 console.log(person);
-User.prototype.change = function(){
-    person.change("Devid", 28);
-}
-console.log(person, 333);
+person.changeData("Erik", 25, 2);
+console.log(person);
 
 
 
@@ -40,12 +46,16 @@ function FigureParameters(sideOne, sideTwo){
     this.sideTwo = sideTwo;
     this.figureName = function(){
         if(sideOne == sideTwo){
-            figureName = "square";
+            this.figureName = "square";
+            return this.figureName;
+            
         }else{
-            figureName = "rectangle";
+            this.figureName = "rectangle";
+            return this.figureName;
         }
     }
 }
+
 FigureParameters.prototype.figureSquare = function(){
     return `${this.sideOne * this.sideTwo}` 
 }
@@ -53,12 +63,15 @@ FigureParameters.prototype.figurePerimeter = function(){
     return `${2 * (this.sideOne + this.sideTwo)}`
 }
 FigureParameters.prototype.figureDiagonal = function(){
-    return `${Math.sqrt(Math.pow(sideOne,2) + Math.pow(this.sideTwo,2))}`
+    return `${(Math.sqrt(Math.pow(this.sideOne,2) + Math.pow(this.sideTwo,2))).toFixed(2)}`
 }
-let newFigure = new FigureParameters(2,5);
+let newFigure = new FigureParameters(5,5);
+console.log(`Figure ${newFigure.figureName()} with side ${newFigure.sideOne} and ${newFigure.sideTwo}.
+Square is ${newFigure.figureSquare()}, perimeter is ${newFigure.figurePerimeter()} and diagonal is ${newFigure.figureDiagonal()}`);
 
-console.log(`Figure ${newFigure.figureName} with side ${newFigure.sideOne} and ${newFigure.sideTwo}.
-Square is ${newFigure.figureSquare}, perimeter is ${newFigure.figurePerimeter} and diagonal is ${newFigure.figureDiagonal}`);
+let newFigure2 = new FigureParameters(2,5);
+console.log(`Figure ${newFigure2.figureName()} with side ${newFigure2.sideOne} and ${newFigure2.sideTwo}.
+Square is ${newFigure2.figureSquare()}, perimeter is ${newFigure2.figurePerimeter()} and diagonal is ${newFigure2.figureDiagonal()}`);
 
 
 
