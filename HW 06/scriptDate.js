@@ -61,7 +61,8 @@ let yearYear = parseInt(prompt("Type a year: "));
     }
   }
   fnBirthday(monthMonth, dayDate)
-    function birthday(yearYear, monthMonth, dayDate, fnBDay){
+
+    function birthdayDay(yearYear, monthMonth, dayDate, fnBDay){
       const today = new Date();
       let thisDay = today.getDate();
       let thisMonth = today.getMonth();
@@ -81,7 +82,7 @@ let yearYear = parseInt(prompt("Type a year: "));
       }
     }
 
-console.log(birthday(yearYear, monthMonth, dayDate, fnBirthday));
+console.log(birthdayDay(yearYear, monthMonth, dayDate, fnBirthday));
 
 
 
@@ -114,10 +115,10 @@ let allDaysArr = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 const checkDays = new Date(2023, 02);
 // const checkDays = new Date();
 
-function daysCounter(){
+function daysCounter(arrDays){
   const currentMonth = checkDays.getMonth();
-  const thisMontsDays = allDaysArr[currentMonth];
-  const nextMonthDays = allDaysArr[currentMonth+1];
+  const thisMontsDays = arrDays[currentMonth];
+  const nextMonthDays = arrDays[currentMonth+1];
   return `В цьому місяці - ${thisMontsDays} днів. В наступному місяці - ${nextMonthDays} днів.`}
 
-console.log(daysCounter());
+console.log(daysCounter(allDaysArr));
