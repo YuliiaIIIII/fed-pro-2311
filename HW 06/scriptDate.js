@@ -11,9 +11,9 @@ sumOfArguments(2,3,4,5,6,7);
 
 
 // 2)Створити функцію яка отримує від користувача день народження,місяць, рік і повертає вік користувача і якщо сьогодні день народження користувача то вивести привітання.
-let day = parseInt(prompt("Type a day: ")); 
-let month = parseInt(prompt("Type a month: "));
-let year = parseInt(prompt("Type a year: "));
+let userDay = parseInt(prompt("Type a day: ")); 
+let userMonth = parseInt(prompt("Type a month: "));
+let userYear = parseInt(prompt("Type a year: "));
 
 const today = new Date(); 
 
@@ -29,7 +29,7 @@ const today = new Date();
       // const userBirthday = new Date(year,month,day);
       if(day==thisDay && month==thisMonth){
         alert ("Happy birthday to you!!!");
-        return;
+        return `User age is ${afterBirthday}`;
       }else if(month==thisMonth){
           if(day<thisDay){
             return `User age is ${afterBirthday}`;
@@ -41,26 +41,18 @@ const today = new Date();
       }
     }
 
-console.log(birthday(year, month, day));
+console.log(birthday(userYear, userMonth, userDay));
 
 
 
 // 3) Модифікуват завдання 2 добавивши в аргументи функцію вітання яка буде використанна як колбек, і в разі дня народження буде вітати користувача
-let dayDate = parseInt(prompt("Type a day: ")); 
-let monthMonth = parseInt(prompt("Type a month: "));
-let yearYear = parseInt(prompt("Type a year: "));
+let getDay = parseInt(prompt("Type a day: ")); 
+let getMonth = parseInt(prompt("Type a month: "));
+let getYear = parseInt(prompt("Type a year: "));
 
-    function fnBirthday(monthMonth, dayDate){
-      const todayDay = new Date();
-      let thisMonth = todayDay.getMonth();
-      let thisDay = todayDay.getDate();
-      monthMonth -= monthMonth;
-      if(dayDate==thisDay && monthMonth==thisMonth){
-        alert ("Happy birthday to you!!!");
-        return;
+    function fnBirthday(){
+      alert ("Happy birthday to you!!!");
     }
-  }
-  // fnBirthday(monthMonth, dayDate)
 
     function birthdayDay(yearYear, monthMonth, dayDate, fnBDay){
       const today = new Date();
@@ -70,7 +62,10 @@ let yearYear = parseInt(prompt("Type a year: "));
       let afterBirthday = thisYear-yearYear;
       let beforeBirthday = (thisYear-yearYear)-1;
       monthMonth -= monthMonth;
-  
+      if(dayDate==thisDay && monthMonth==thisMonth){
+        fnBirthday();
+        return `User age is ${afterBirthday}`;
+      }
       if(monthMonth==thisMonth){
           if(dayDate<thisDay){
             return `User age is ${afterBirthday}`;
@@ -80,9 +75,10 @@ let yearYear = parseInt(prompt("Type a year: "));
       }  else if(monthMonth<thisMonth){
         return `User age is ${afterBirthday}`;
       }
+
     }
 
-console.log(birthdayDay(yearYear, monthMonth, dayDate, fnBirthday(monthMonth, dayDate)));
+console.log(birthdayDay(getYear, getMonth, getDay, fnBirthday));
 
 
 
