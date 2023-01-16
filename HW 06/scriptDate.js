@@ -60,7 +60,7 @@ let yearYear = parseInt(prompt("Type a year: "));
         return;
     }
   }
-  fnBirthday(monthMonth, dayDate)
+  // fnBirthday(monthMonth, dayDate)
 
     function birthdayDay(yearYear, monthMonth, dayDate, fnBDay){
       const today = new Date();
@@ -82,7 +82,7 @@ let yearYear = parseInt(prompt("Type a year: "));
       }
     }
 
-console.log(birthdayDay(yearYear, monthMonth, dayDate, fnBirthday));
+console.log(birthdayDay(yearYear, monthMonth, dayDate, fnBirthday(monthMonth, dayDate)));
 
 
 
