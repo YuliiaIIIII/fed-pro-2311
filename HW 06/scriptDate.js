@@ -1,10 +1,9 @@
 // 1) Створити функцію яка отримує невизначену кількість аргументів, вираховує їх суму і повертає результат обчислень
-function sumOfArguments(a, b, c){
+function sumOfArguments(...a){
   let sumNumbers = 0;
-  for (let j = 0; j<arguments.length; j++)
-    sumNumbers += arguments[j];
+  for (let j = 0; j<a.length; j++)
+    sumNumbers += a[j];
     console.log(sumNumbers);
-    return sumNumbers;
 }
 sumOfArguments(2,3,4,5,6,7);
 
