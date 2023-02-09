@@ -137,7 +137,6 @@ function cutValue (start,finish,anyArray){
   else{
     alert("Please set correct values")
   }
- 
 }
 cutValue(start,finish,anyArray)
 cutValue(start,finish,anotherArray)
