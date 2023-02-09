@@ -138,5 +138,5 @@ function cutValue (start,finish,anyArray){
     alert("Please set correct values")
   }
 }
-cutValue(start,finish,anyArray)
-cutValue(start,finish,anotherArray)
+cutValue(start,finish,anyArray);
+cutValue(start,finish,anotherArray);
