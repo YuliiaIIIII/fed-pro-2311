@@ -129,14 +129,15 @@ anotherArray = [0,1,2,3,true,5,"Hello",7,8,9,"10"];
 function cutValue (start,finish,anyArray){
   if(start<finish){
     if(finish<anyArray.length){
+      let newAnyArray = anyArray.slice(start,finish);
+      console.log(newAnyArray);
+      return newAnyArray;
     } 
   }
   else{
     alert("Please set correct values")
   }
-  let newAnyArray = anyArray.slice(start,finish);
-  console.log(newAnyArray);
-  return newAnyArray;
+ 
 }
 cutValue(start,finish,anyArray)
 cutValue(start,finish,anotherArray)
