@@ -88,13 +88,13 @@ numberValue = prompt("Вкажіть число більше 0:", '');
 }  
     
 if(numberValue > 100 && numberValue < 3000){
-    console.log(`Ваша знижка становить 3%. До сплати:  ${numberValue - numberValue * discount3} грн.`);
+    console.log(`Ваша знижка становить 3%. До сплати: ${numberValue - numberValue * discount3} грн.`);
 }
     else if(numberValue >= 3000 && numberValue < 10000){
-    console.log(`Ваша знижка становить 5%. До сплати:  ${numberValue - numberValue * discount5} грн.`);
+    console.log(`Ваша знижка становить 5%. До сплати: ${numberValue - numberValue * discount5} грн.`);
 }
     else if(numberValue >= 10000){
-    console.log(`Ваша знижка становить 7%. До сплати:  ${numberValue - numberValue * discount7} грн.`);
+    console.log(`Ваша знижка становить 7%. До сплати: ${numberValue - numberValue * discount7} грн.`);
 }
 else{
     console.log("У вас нема знижки. До сплати: " + numberValue);
