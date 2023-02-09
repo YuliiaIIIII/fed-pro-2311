@@ -13,15 +13,15 @@ if(login == "admin" && pass == "12345"){
 let maxNumbers = 3;
 let attempt = 0;
 let resAverage;
-let result = 0;
+let resultValue = 0;
 while(attempt<maxNumbers){
     let number = prompt('Введіть число: ', '');
     attempt++;
     number = parseFloat(number);
-    result = result + number;
-    // console.log(result);  
+    resultValue = resultValue + number;
+    // console.log(resultValue);  
 }
-resAverage = result/maxNumbers
+resAverage = resultValue/maxNumbers
 console.log(resAverage);
 
 
