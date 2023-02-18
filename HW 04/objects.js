@@ -32,8 +32,7 @@ function converter(arrayValue){
         alert("Your balance is too low!");
         return;
     }
-
-  arrayValue.forEach((item) => {console.log(`За ${userWallet.amountUah} UAH ви можете купити ${(userWallet.amountUah / item.buy).toFixed(2)}.`)});
+    arrayValue.forEach((item) => {console.log(`За ${userWallet.amountUah} UAH ви можете купити ${(userWallet.amountUah / item.buy).toFixed(2)} ${(item.name).toUpperCase()}.`)});
 }
 converter(bank);
 
@@ -134,10 +133,10 @@ let figurs = [
     }
 ]
 
-function square(figurs){ 
-    for(i=0; i<figurs.length; i++){
-        let result = figurs[i].sizeA * figurs[i].sizeB;
-        console.log((`Фігура ${figurs[i].figure} з площею ${result}`));  
+function square(element){ 
+    for(i=0; i<element.length; i++){
+        let result = element[i].sizeA * element[i].sizeB;
+        console.log((`Фігура ${element[i].figure} з площею ${result}`));  
     }
 }
 square(figurs);
@@ -156,3 +155,19 @@ function multiple(value, index, array) {
 }
 NumbersArr.forEach(multiple);
 console.log(NumbersArr);
+
+///////// 2-nd option
+// let NumbersArr = [2,3,5,4,8,7,9,10];
+// let newArray = [];
+// function multiple(value,index,array){
+//     if(value%2 == 0){
+//       array[index] = value * 4;
+//     }else{
+//       array[index] = value;
+//     }
+//     newArray.push(array[index]);
+//     console.log(newArray,22);
+//   }
+// NumbersArr.forEach(multiple);
+// console.log(NumbersArr);
+// // console.log(newArray);
