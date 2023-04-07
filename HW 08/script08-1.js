@@ -1,6 +1,7 @@
 window.onload = ()=>{
 // 1) Створити сторінку на якій виводиться  вікно в яке юзер вводить дані.
 // Дані виводяться в стилізований список,  можете підключити bootstrap чи написати свої стилі. При введені більше 5 пунктів, перший пункт видаляється. В пункті який добавляється повинні бути данні, які введено і час створення в форматі день, номер місяця, рік і час години хвилини.
+
 const body = document.querySelector('body');
 body.setAttribute('style', 'background-color: #a0c6ff78; margin: 0');
 const listContainer = document.querySelector('.listContainer');
@@ -24,7 +25,6 @@ function removeChildren () {
     allChildren.forEach((item)=>{
         item.innerHTML = '';
     })
-
 }
 
 function askToContinue (){
@@ -35,7 +35,7 @@ function askToContinue (){
                 let newItem = prompt("Вкажіть Ваше ім'я:");
                 listOfNames.shift();
                 listOfNames.push(newItem);
-                removeChildren () 
+                removeChildren ()
                 addNameToArray();
             }else{
                 alert(`Список складено`);
