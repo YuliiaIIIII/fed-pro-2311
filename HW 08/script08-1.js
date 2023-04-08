@@ -3,12 +3,13 @@ window.onload = ()=>{
 // Дані виводяться в стилізований список,  можете підключити bootstrap чи написати свої стилі. При введені більше 5 пунктів, перший пункт видаляється. В пункті який добавляється повинні бути данні, які введено і час створення в форматі день, номер місяця, рік і час години хвилини.
 
 const body = document.querySelector('body');
-body.setAttribute('style', 'background-color: #a0c6ff78; margin: 0');
+body.setAttribute('style','background-color: #a0c6ff78; margin: 0');
 const listContainer = document.querySelector('.listContainer');
 listContainer.setAttribute('style','margin-top: 50px; text-align: center; font-size: 20px');
 const listElement = document.querySelector('.listItems');
 listElement.setAttribute('style','text-align: center; list-style-type: none; display: flex; flex-direction: column; align-items: center; padding: 0;');
 const ul = document.querySelector('ul');
+
 let listOfNames = [];
 let attempts = 5;
 
@@ -45,8 +46,12 @@ function askToContinue (){
 
 for(let i = 0; i < attempts; i++){
     const item = prompt("Вкажіть Ваше ім'я:");
-    listOfNames.push(item);
-
+    if(item == null){
+        return;
+    }else{
+        listOfNames.push(item);
+    }
+    
 function addNameToArray() {
         if(listOfNames.length == 5){
             listOfNames.forEach((item)=> {

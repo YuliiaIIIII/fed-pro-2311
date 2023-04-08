@@ -31,6 +31,9 @@ let studentsArray =[
     },
 ]
 
+const title = document.querySelector('.title');
+title.setAttribute('style','text-align: center; color: midnightblue;');
+
 let table = document.getElementById('table');
 let thead = document.createElement('thead');
 table.appendChild(thead);
